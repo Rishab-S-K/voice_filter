@@ -15,10 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDoubleSpinBox, QGroupBox, QHBoxLayout,
-    QLabel, QLayout, QMainWindow, QPushButton,
-    QRadioButton, QSizePolicy, QSlider, QSpinBox,
-    QStatusBar, QToolBox, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QDoubleSpinBox, QGridLayout,
+    QGroupBox, QHBoxLayout, QLabel, QLayout,
+    QMainWindow, QPushButton, QRadioButton, QSizePolicy,
+    QSlider, QSpinBox, QStatusBar, QToolBox,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -33,22 +34,22 @@ class Ui_MainWindow(object):
         self.standardproperty.setObjectName(u"standardproperty")
         self.page = QWidget()
         self.page.setObjectName(u"page")
-        self.page.setGeometry(QRect(0, 0, 778, 445))
+        self.page.setGeometry(QRect(0, 0, 778, 409))
         self.verticalLayout_2 = QVBoxLayout(self.page)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setSpacing(5)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
-        self.horizontalLayout_2.setContentsMargins(-1, 0, -1, -1)
-        self.radioButton = QRadioButton(self.page)
-        self.radioButton.setObjectName(u"radioButton")
+        self.buttonGroup = QHBoxLayout()
+        self.buttonGroup.setSpacing(5)
+        self.buttonGroup.setObjectName(u"buttonGroup")
+        self.buttonGroup.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
+        self.buttonGroup.setContentsMargins(-1, 0, -1, -1)
+        self.lpButton = QRadioButton(self.page)
+        self.lpButton.setObjectName(u"lpButton")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.radioButton.sizePolicy().hasHeightForWidth())
-        self.radioButton.setSizePolicy(sizePolicy)
-        self.radioButton.setStyleSheet(u"QRadioButton {\n"
+        sizePolicy.setHeightForWidth(self.lpButton.sizePolicy().hasHeightForWidth())
+        self.lpButton.setSizePolicy(sizePolicy)
+        self.lpButton.setStyleSheet(u"QRadioButton {\n"
 "    spacing: 0px;\n"
 "    border: 2px solid #555;\n"
 "    border-radius: 6px;\n"
@@ -72,13 +73,13 @@ class Ui_MainWindow(object):
 "    border: 2px solid #1976D2;\n"
 "}")
 
-        self.horizontalLayout_2.addWidget(self.radioButton)
+        self.buttonGroup.addWidget(self.lpButton)
 
-        self.radioButton_2 = QRadioButton(self.page)
-        self.radioButton_2.setObjectName(u"radioButton_2")
-        sizePolicy.setHeightForWidth(self.radioButton_2.sizePolicy().hasHeightForWidth())
-        self.radioButton_2.setSizePolicy(sizePolicy)
-        self.radioButton_2.setStyleSheet(u"QRadioButton {\n"
+        self.hpButton = QRadioButton(self.page)
+        self.hpButton.setObjectName(u"hpButton")
+        sizePolicy.setHeightForWidth(self.hpButton.sizePolicy().hasHeightForWidth())
+        self.hpButton.setSizePolicy(sizePolicy)
+        self.hpButton.setStyleSheet(u"QRadioButton {\n"
 "    spacing: 0px;\n"
 "    border: 2px solid #555;\n"
 "    border-radius: 6px;\n"
@@ -102,13 +103,13 @@ class Ui_MainWindow(object):
 "    border: 2px solid #F57C00;\n"
 "}")
 
-        self.horizontalLayout_2.addWidget(self.radioButton_2)
+        self.buttonGroup.addWidget(self.hpButton)
 
-        self.radioButton_3 = QRadioButton(self.page)
-        self.radioButton_3.setObjectName(u"radioButton_3")
-        sizePolicy.setHeightForWidth(self.radioButton_3.sizePolicy().hasHeightForWidth())
-        self.radioButton_3.setSizePolicy(sizePolicy)
-        self.radioButton_3.setStyleSheet(u"QRadioButton {\n"
+        self.bpButton = QRadioButton(self.page)
+        self.bpButton.setObjectName(u"bpButton")
+        sizePolicy.setHeightForWidth(self.bpButton.sizePolicy().hasHeightForWidth())
+        self.bpButton.setSizePolicy(sizePolicy)
+        self.bpButton.setStyleSheet(u"QRadioButton {\n"
 "    spacing: 0px;\n"
 "    border: 2px solid #555;\n"
 "    border-radius: 6px;\n"
@@ -132,13 +133,13 @@ class Ui_MainWindow(object):
 "    border: 2px solid #388E3C;\n"
 "}")
 
-        self.horizontalLayout_2.addWidget(self.radioButton_3)
+        self.buttonGroup.addWidget(self.bpButton)
 
-        self.radioButton_4 = QRadioButton(self.page)
-        self.radioButton_4.setObjectName(u"radioButton_4")
-        sizePolicy.setHeightForWidth(self.radioButton_4.sizePolicy().hasHeightForWidth())
-        self.radioButton_4.setSizePolicy(sizePolicy)
-        self.radioButton_4.setStyleSheet(u"QRadioButton {\n"
+        self.bsButton = QRadioButton(self.page)
+        self.bsButton.setObjectName(u"bsButton")
+        sizePolicy.setHeightForWidth(self.bsButton.sizePolicy().hasHeightForWidth())
+        self.bsButton.setSizePolicy(sizePolicy)
+        self.bsButton.setStyleSheet(u"QRadioButton {\n"
 "    spacing: 0px;\n"
 "    border: 2px solid #555;\n"
 "    border-radius: 6px;\n"
@@ -162,13 +163,14 @@ class Ui_MainWindow(object):
 "    border: 2px solid #D32F2F;\n"
 "}")
 
-        self.horizontalLayout_2.addWidget(self.radioButton_4)
+        self.buttonGroup.addWidget(self.bsButton)
 
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+        self.verticalLayout_2.addLayout(self.buttonGroup)
 
         self.groupBox = QGroupBox(self.page)
         self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setEnabled(False)
         self.verticalLayout_3 = QVBoxLayout(self.groupBox)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.orderLabel = QLabel(self.groupBox)
@@ -178,6 +180,8 @@ class Ui_MainWindow(object):
 
         self.orderSpin = QSpinBox(self.groupBox)
         self.orderSpin.setObjectName(u"orderSpin")
+        self.orderSpin.setMinimum(1)
+        self.orderSpin.setMaximum(10)
 
         self.verticalLayout_3.addWidget(self.orderSpin)
 
@@ -190,11 +194,16 @@ class Ui_MainWindow(object):
         self.samplingLayout.setObjectName(u"samplingLayout")
         self.samplingSpin = QDoubleSpinBox(self.groupBox)
         self.samplingSpin.setObjectName(u"samplingSpin")
+        self.samplingSpin.setMaximum(96000.000000000000000)
+        self.samplingSpin.setSingleStep(1000.000000000000000)
+        self.samplingSpin.setStepType(QAbstractSpinBox.StepType.DefaultStepType)
 
         self.samplingLayout.addWidget(self.samplingSpin)
 
         self.samplingSlider = QSlider(self.groupBox)
         self.samplingSlider.setObjectName(u"samplingSlider")
+        self.samplingSlider.setMaximum(96000)
+        self.samplingSlider.setSingleStep(100)
         self.samplingSlider.setOrientation(Qt.Orientation.Horizontal)
 
         self.samplingLayout.addWidget(self.samplingSlider)
@@ -209,16 +218,35 @@ class Ui_MainWindow(object):
 
         self.cutoffLayout = QHBoxLayout()
         self.cutoffLayout.setObjectName(u"cutoffLayout")
-        self.cutoffSpin = QDoubleSpinBox(self.groupBox)
-        self.cutoffSpin.setObjectName(u"cutoffSpin")
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy1)
 
-        self.cutoffLayout.addWidget(self.cutoffSpin)
+        self.cutoffLayout.addWidget(self.label)
 
-        self.cutoffSlider = QSlider(self.groupBox)
-        self.cutoffSlider.setObjectName(u"cutoffSlider")
-        self.cutoffSlider.setOrientation(Qt.Orientation.Horizontal)
+        self.cutoffSpin1 = QDoubleSpinBox(self.groupBox)
+        self.cutoffSpin1.setObjectName(u"cutoffSpin1")
+        self.cutoffSpin1.setSingleStep(1000.000000000000000)
 
-        self.cutoffLayout.addWidget(self.cutoffSlider)
+        self.cutoffLayout.addWidget(self.cutoffSpin1)
+
+        self.label_2 = QLabel(self.groupBox)
+        self.label_2.setObjectName(u"label_2")
+        sizePolicy1.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy1)
+
+        self.cutoffLayout.addWidget(self.label_2)
+
+        self.cutoffSpin2 = QDoubleSpinBox(self.groupBox)
+        self.cutoffSpin2.setObjectName(u"cutoffSpin2")
+        self.cutoffSpin2.setEnabled(False)
+        self.cutoffSpin2.setSingleStep(1000.000000000000000)
+
+        self.cutoffLayout.addWidget(self.cutoffSpin2)
 
 
         self.verticalLayout_3.addLayout(self.cutoffLayout)
@@ -229,25 +257,35 @@ class Ui_MainWindow(object):
         self.standardproperty.addItem(self.page, u"Standard Filters (LP, HP, BP, BS)")
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.page_2.setGeometry(QRect(0, 0, 778, 445))
+        self.page_2.setGeometry(QRect(0, 0, 778, 409))
         self.standardproperty.addItem(self.page_2, u"Custom Filters")
 
         self.verticalLayout.addWidget(self.standardproperty)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.record = QPushButton(self.centralwidget)
-        self.record.setObjectName(u"record")
-
-        self.horizontalLayout.addWidget(self.record)
-
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
         self.play = QPushButton(self.centralwidget)
         self.play.setObjectName(u"play")
 
-        self.horizontalLayout.addWidget(self.play)
+        self.gridLayout.addWidget(self.play, 0, 1, 1, 1)
+
+        self.playFiltered = QPushButton(self.centralwidget)
+        self.playFiltered.setObjectName(u"playFiltered")
+
+        self.gridLayout.addWidget(self.playFiltered, 1, 1, 1, 1)
+
+        self.record = QPushButton(self.centralwidget)
+        self.record.setObjectName(u"record")
+
+        self.gridLayout.addWidget(self.record, 0, 0, 1, 1)
+
+        self.saveFilter = QPushButton(self.centralwidget)
+        self.saveFilter.setObjectName(u"saveFilter")
+
+        self.gridLayout.addWidget(self.saveFilter, 1, 0, 1, 1)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.verticalLayout.addLayout(self.gridLayout)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
@@ -264,17 +302,21 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Low-Pass", None))
-        self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"High-Pass", None))
-        self.radioButton_3.setText(QCoreApplication.translate("MainWindow", u"Band-Pass", None))
-        self.radioButton_4.setText(QCoreApplication.translate("MainWindow", u"Band-Stop", None))
+        self.lpButton.setText(QCoreApplication.translate("MainWindow", u"Low-Pass", None))
+        self.hpButton.setText(QCoreApplication.translate("MainWindow", u"High-Pass", None))
+        self.bpButton.setText(QCoreApplication.translate("MainWindow", u"Band-Pass", None))
+        self.bsButton.setText(QCoreApplication.translate("MainWindow", u"Band-Stop", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Properties", None))
         self.orderLabel.setText(QCoreApplication.translate("MainWindow", u"Order (N)", None))
         self.samplingLabel.setText(QCoreApplication.translate("MainWindow", u"Sampling Frequency (fs)", None))
         self.cutoffLabel.setText(QCoreApplication.translate("MainWindow", u"Cutoff Frequency (wn)", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"  Low    :  ", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"  High    :  ", None))
         self.standardproperty.setItemText(self.standardproperty.indexOf(self.page), QCoreApplication.translate("MainWindow", u"Standard Filters (LP, HP, BP, BS)", None))
         self.standardproperty.setItemText(self.standardproperty.indexOf(self.page_2), QCoreApplication.translate("MainWindow", u"Custom Filters", None))
-        self.record.setText(QCoreApplication.translate("MainWindow", u"RECORD", None))
         self.play.setText(QCoreApplication.translate("MainWindow", u"PLAY", None))
+        self.playFiltered.setText(QCoreApplication.translate("MainWindow", u"PLAY FILTERED", None))
+        self.record.setText(QCoreApplication.translate("MainWindow", u"RECORD", None))
+        self.saveFilter.setText(QCoreApplication.translate("MainWindow", u"SAVE FILTER", None))
     # retranslateUi
 
