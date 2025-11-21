@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QToolBox" name="standardproperty">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>778</width>
+         <height>445</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Standard Filters (LP, HP, BP, BS)</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="radioButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton {
+    spacing: 0px;
+    border: 2px solid #555;
+    border-radius: 6px;
+    padding: 5px 15px;
+    background-color: #ddd;
+    color: #222;
+    font-weight: bold;
+}
+
+QRadioButton::indicator {
+    image: none;
+}
+
+QRadioButton:hover {
+    background-color: #eee;
+}
+
+QRadioButton:checked {
+    background-color: #2196F3;
+    color: white;
+    border: 2px solid #1976D2;
+}</string>
+            </property>
+            <property name="text">
+             <string>Low-Pass</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton {
+    spacing: 0px;
+    border: 2px solid #555;
+    border-radius: 6px;
+    padding: 5px 15px;
+    background-color: #ddd;
+    color: #222;
+    font-weight: bold;
+}
+
+QRadioButton::indicator {
+    image: none;
+}
+
+QRadioButton:hover {
+    background-color: #eee;
+}
+
+QRadioButton:checked {
+    background-color: #FF9800;
+    color: white;
+    border: 2px solid #F57C00;
+}</string>
+            </property>
+            <property name="text">
+             <string>High-Pass</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton {
+    spacing: 0px;
+    border: 2px solid #555;
+    border-radius: 6px;
+    padding: 5px 15px;
+    background-color: #ddd;
+    color: #222;
+    font-weight: bold;
+}
+
+QRadioButton::indicator {
+    image: none;
+}
+
+QRadioButton:hover {
+    background-color: #eee;
+}
+
+QRadioButton:checked {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #388E3C;
+}</string>
+            </property>
+            <property name="text">
+             <string>Band-Pass</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton {
+    spacing: 0px;
+    border: 2px solid #555;
+    border-radius: 6px;
+    padding: 5px 15px;
+    background-color: #ddd;
+    color: #222;
+    font-weight: bold;
+}
+
+QRadioButton::indicator {
+    image: none;
+}
+
+QRadioButton:hover {
+    background-color: #eee;
+}
+
+QRadioButton:checked {
+    background-color: #F44336;
+    color: white;
+    border: 2px solid #D32F2F;
+}</string>
+            </property>
+            <property name="text">
+             <string>Band-Stop</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Properties</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="orderLabel">
+             <property name="text">
+              <string>Order (N)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="orderSpin"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="samplingLabel">
+             <property name="text">
+              <string>Sampling Frequency (fs)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="samplingLayout">
+             <item>
+              <widget class="QDoubleSpinBox" name="samplingSpin"/>
+             </item>
+             <item>
+              <widget class="QSlider" name="samplingSlider">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="cutoffLabel">
+             <property name="text">
+              <string>Cutoff Frequency (wn)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="cutoffLayout">
+             <item>
+              <widget class="QDoubleSpinBox" name="cutoffSpin"/>
+             </item>
+             <item>
+              <widget class="QSlider" name="cutoffSlider">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>778</width>
+         <height>445</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Custom Filters</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="record">
+        <property name="text">
+         <string>RECORD</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="play">
+        <property name="text">
+         <string>PLAY</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
