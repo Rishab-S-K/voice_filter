@@ -43,17 +43,18 @@ class MainWindow(QMainWindow):
         self.ui.playFiltered.clicked.connect(self.on_playFilter_clicked)
 
 
-
+    #initially record the audio
     def record_audio(self):
         self.current_recording = sd.rec(int(self.duration * self.freq), samplerate = self.freq, channels = 1)
         sd.wait()
         self.current_recording = self.current_recording.flatten()
         self.filtered_recording = self.current_recording
 
-
+    #play the recorded audio
     def play_audio(self):
         sd.play(self.filtered_recording)
 
+    #the following 4 buttons will trigger the properties to be enabled for standard filters
     def on_lpButton_toggled(self, checked):
         self.ui.groupBox.setEnabled(True)
         if checked:
@@ -82,7 +83,7 @@ class MainWindow(QMainWindow):
 
 
 
-
+    #when the sampling spin box is changed, change wn to be 1/2 * fs - 0.1 *nessasary for butter() functionality
     def on_samplingFrequency_changed(self,value):
         self.ui.samplingSlider.setValue(value)
 
@@ -90,7 +91,7 @@ class MainWindow(QMainWindow):
         self.ui.cutoffSpin2.setMaximum(value/2 - 0.1)
 
 
-
+    #when slider is changed, change the spinbox value too
     def on_samplingSlider_changed(self, value):
         self.ui.samplingSpin.setValue(value)
 
