@@ -83,5 +83,7 @@ __pycache__/
 .qtcreator/
 *.user
 *.pro.user
+*.pyproject.user
+
 *.pro.user.*
 *.autosave
