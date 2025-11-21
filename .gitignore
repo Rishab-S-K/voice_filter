@@ -72,3 +72,16 @@ CMakeLists.txt.user*
 *.dll
 *.exe
 
+# Python virtual environments
+venv/
+.env/
+.Pythonvenv/
+Pythonvenv/
+__pycache__/
+
+# Qt Creator local files
+.qtcreator/
+*.user
+*.pro.user
+*.pro.user.*
+*.autosave
