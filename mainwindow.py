@@ -1,5 +1,5 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton, QMessageBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialog
 
 import numpy as np
 import scipy as sp
@@ -42,6 +42,8 @@ class MainWindow(QMainWindow):
         self.ui.playFiltered.clicked.connect(self.on_playFilter_clicked)
 
         self.ui.volumeSlider.valueChanged.connect(self.on_volume_changed)
+
+        self.ui.actionLoad_Your_Own_File.triggered.connect(self.on_loadFile_triggered)
 
 
     #initially record the audio
@@ -142,6 +144,34 @@ class MainWindow(QMainWindow):
     def on_volume_changed(self, value):
         self.current_recording = self.current_recording_og * value/100.
         return
+
+    def on_loadFile_triggered(self):
+        wav_file, _ = QFileDialog.getOpenFileName(
+            self,
+            "Select an Audio File",
+            "",
+            "WAV Files (*.wav)"
+        )
+
+        if not wav_file:
+            print("No .WAV selected.")
+            return
+
+        data, fs = sf.read(wav_file)
+        self.current_recording = data
+        #if stereo
+        if data.ndim > 1:
+            self.current_recording = self.current_recording.mean(axis = 1)
+        #if mono
+        else:
+            self.current_recording = self.current_recording.flatten()
+
+        #normalize the recording first, then multiply it by volume factor
+        self.current_recording = self.normalize(self.current_recording)
+        self.current_recording_og = self.current_recording
+        self.current_recording = self.current_recording * self.ui.volumeSlider.value()/100
+        self.filtered_recording = self.current_recording
+
 
 
 

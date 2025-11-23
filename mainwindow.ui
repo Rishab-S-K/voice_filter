@@ -26,7 +26,7 @@
          <x>0</x>
          <y>0</y>
          <width>782</width>
-         <height>438</height>
+         <height>417</height>
         </rect>
        </property>
        <attribute name="label">
@@ -326,7 +326,7 @@ QRadioButton:checked {
          <x>0</x>
          <y>0</y>
          <width>782</width>
-         <height>438</height>
+         <height>417</height>
         </rect>
        </property>
        <attribute name="label">
@@ -399,6 +399,40 @@ QRadioButton:checked {
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionLoad_Default_Recording"/>
+    <addaction name="actionLoad_Your_Own_File"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuOptions"/>
+  </widget>
+  <action name="actionLoad_Default_Recording">
+   <property name="text">
+    <string>Load Default Recording</string>
+   </property>
+  </action>
+  <action name="actionLoad_Your_Own_File">
+   <property name="text">
+    <string>Load Your Own File</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

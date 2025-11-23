@@ -11,21 +11,28 @@
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
 from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QDoubleSpinBox, QGridLayout,
     QGroupBox, QHBoxLayout, QLabel, QLayout,
-    QMainWindow, QPushButton, QRadioButton, QSizePolicy,
-    QSlider, QSpinBox, QStatusBar, QToolBox,
-    QVBoxLayout, QWidget)
+    QMainWindow, QMenu, QMenuBar, QPushButton,
+    QRadioButton, QSizePolicy, QSlider, QSpinBox,
+    QStatusBar, QToolBox, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(800, 600)
+        self.actionLoad_Default_Recording = QAction(MainWindow)
+        self.actionLoad_Default_Recording.setObjectName(u"actionLoad_Default_Recording")
+        self.actionLoad_Your_Own_File = QAction(MainWindow)
+        self.actionLoad_Your_Own_File.setObjectName(u"actionLoad_Your_Own_File")
+        self.actionExit = QAction(MainWindow)
+        self.actionExit.setObjectName(u"actionExit")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -34,7 +41,7 @@ class Ui_MainWindow(object):
         self.standardproperty.setObjectName(u"standardproperty")
         self.page = QWidget()
         self.page.setObjectName(u"page")
-        self.page.setGeometry(QRect(0, 0, 782, 438))
+        self.page.setGeometry(QRect(0, 0, 782, 417))
         self.verticalLayout_2 = QVBoxLayout(self.page)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.buttonGroup = QHBoxLayout()
@@ -257,7 +264,7 @@ class Ui_MainWindow(object):
         self.standardproperty.addItem(self.page, u"Standard Filters (LP, HP, BP, BS)")
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.page_2.setGeometry(QRect(0, 0, 782, 438))
+        self.page_2.setGeometry(QRect(0, 0, 782, 417))
         self.standardproperty.addItem(self.page_2, u"Custom Filters")
 
         self.verticalLayout.addWidget(self.standardproperty)
@@ -310,6 +317,17 @@ class Ui_MainWindow(object):
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.menuBar = QMenuBar(MainWindow)
+        self.menuBar.setObjectName(u"menuBar")
+        self.menuBar.setGeometry(QRect(0, 0, 800, 21))
+        self.menuOptions = QMenu(self.menuBar)
+        self.menuOptions.setObjectName(u"menuOptions")
+        MainWindow.setMenuBar(self.menuBar)
+
+        self.menuBar.addAction(self.menuOptions.menuAction())
+        self.menuOptions.addAction(self.actionLoad_Default_Recording)
+        self.menuOptions.addAction(self.actionLoad_Your_Own_File)
+        self.menuOptions.addAction(self.actionExit)
 
         self.retranslateUi(MainWindow)
 
@@ -321,6 +339,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.actionLoad_Default_Recording.setText(QCoreApplication.translate("MainWindow", u"Load Default Recording", None))
+        self.actionLoad_Your_Own_File.setText(QCoreApplication.translate("MainWindow", u"Load Your Own File", None))
+        self.actionExit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.lpButton.setText(QCoreApplication.translate("MainWindow", u"Low-Pass", None))
         self.hpButton.setText(QCoreApplication.translate("MainWindow", u"High-Pass", None))
         self.bpButton.setText(QCoreApplication.translate("MainWindow", u"Band-Pass", None))
@@ -338,5 +359,6 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"    Volume  :", None))
         self.saveFilter.setText(QCoreApplication.translate("MainWindow", u"SAVE FILTER", None))
         self.record.setText(QCoreApplication.translate("MainWindow", u"RECORD", None))
+        self.menuOptions.setTitle(QCoreApplication.translate("MainWindow", u"Options", None))
     # retranslateUi
 
