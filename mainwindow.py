@@ -42,6 +42,10 @@ class MainWindow(QMainWindow):
         self.ui.playFiltered.clicked.connect(self.on_playFilter_clicked)
 
         self.ui.volumeSlider.valueChanged.connect(self.on_volume_changed)
+        # preset filter buttons
+        self.ui.telephonePresetButton.clicked.connect(self.apply_preset_telephone)
+        self.ui.bassCutPresetButton.clicked.connect(self.apply_preset_bass_cut)
+        self.ui.trebleCutPresetButton.clicked.connect(self.apply_preset_treble_cut)
 
         self.ui.actionLoad_Your_Own_File.triggered.connect(self.on_loadFile_triggered)
 
@@ -59,9 +63,17 @@ class MainWindow(QMainWindow):
 
     #play the recorded audio
     def play_audio(self):
+        #if recording is None, prints error
+        if self.current_recording is None:
+            QMessageBox.warning(self, "No recording", "Please record audio before playing.")
+            return
         sd.play(self.current_recording)
 
     def on_playFilter_clicked(self):
+        #if the filtered recording does not exists, prints error
+        if self.filtered_recording is None:
+            QMessageBox.warning(self, "No filtered audio", "Please apply and save a filter first.")
+            return
         sd.play(self.filtered_recording)
 
     #the following 4 buttons will trigger the properties to be enabled for standard filters
@@ -133,10 +145,67 @@ class MainWindow(QMainWindow):
 
         self.filtered_recording = sosfiltfilt(filter, self.current_recording)
 
+    #Telephone Preset Filter
+    #Mimics telephone-quality speech
+    def apply_preset_telephone(self):
+        if self.current_recording is None:
+            QMessageBox.warning(self, "No recording",
+                                "Please record audio before applying a preset.")
+            return
+
+        fs = self.freq  # 44100 Hz
+        sos = butter(
+            N=4,
+            Wn=[300, 3400],  # Hz
+            btype="band",
+            fs=fs,
+            output="sos"
+        )
+        self.filtered_recording = sosfiltfilt(sos, self.current_recording)
+
+    #Base Cut Preset Filter
+    #Removes low-frequency rumble
+    def apply_preset_bass_cut(self):
+        if self.current_recording is None:
+            QMessageBox.warning(self, "No recording",
+                                "Please record audio before applying a preset.")
+            return
+
+        fs = self.freq
+        sos = butter(
+            N=4,
+            Wn=200,          # cut below 200 Hz
+            btype="high",
+            fs=fs,
+            output="sos"
+        )
+        self.filtered_recording = sosfiltfilt(sos, self.current_recording)
+
+    #Treble Cut Preset Filter
+    #Makes voice more muffled and soft
+    def apply_preset_treble_cut(self):
+        if self.current_recording is None:
+            QMessageBox.warning(self, "No recording",
+                                "Please record audio before applying a preset.")
+            return
+
+        fs = self.freq
+        sos = butter(
+            N=4,
+            Wn=4000,
+            btype="low",
+            fs=fs,
+            output="sos"
+        )
+        self.filtered_recording = sosfiltfilt(sos, self.current_recording)
+
 
     #adjust the levels of each sample  according to its peak amplitude
     def normalize(self, recording):
         peak = np.max(np.abs(recording))
+        #avoid division by zero if the recording is completely silent
+        if peak == 0:
+            return recording
         norm_recording = recording/peak
         return norm_recording
 

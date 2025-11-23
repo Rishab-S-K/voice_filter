@@ -26,7 +26,7 @@
          <x>0</x>
          <y>0</y>
          <width>782</width>
-         <height>417</height>
+         <height>387</height>
         </rect>
        </property>
        <attribute name="label">
@@ -326,7 +326,7 @@ QRadioButton:checked {
          <x>0</x>
          <y>0</y>
          <width>782</width>
-         <height>417</height>
+         <height>387</height>
         </rect>
        </property>
        <attribute name="label">
@@ -337,20 +337,6 @@ QRadioButton:checked {
     </item>
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="1">
-       <widget class="QPushButton" name="playFiltered">
-        <property name="text">
-         <string>PLAY FILTERED</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="play">
-        <property name="text">
-         <string>PLAY</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="2">
        <widget class="QLabel" name="label_3">
         <property name="text">
@@ -358,10 +344,10 @@ QRadioButton:checked {
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="saveFilter">
+      <item row="2" column="1">
+       <widget class="QPushButton" name="playFiltered">
         <property name="text">
-         <string>SAVE FILTER</string>
+         <string>PLAY FILTERED</string>
         </property>
        </widget>
       </item>
@@ -372,7 +358,14 @@ QRadioButton:checked {
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="saveFilter">
+        <property name="text">
+         <string>SAVE FILTER</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
        <widget class="QSlider" name="volumeSlider">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -394,6 +387,34 @@ QRadioButton:checked {
         </property>
        </widget>
       </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="play">
+        <property name="text">
+         <string>PLAY</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="telephonePresetButton">
+        <property name="text">
+         <string>TELEPHONE PRESET</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="bassCutPresetButton">
+        <property name="text">
+         <string>BASS CUT PRESET</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="trebleCutPresetButton">
+        <property name="text">
+         <string>TREBLE CUT PRESET</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
@@ -405,7 +426,7 @@ QRadioButton:checked {
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOptions">
