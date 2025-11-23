@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.standardproperty.setObjectName(u"standardproperty")
         self.page = QWidget()
         self.page.setObjectName(u"page")
-        self.page.setGeometry(QRect(0, 0, 778, 409))
+        self.page.setGeometry(QRect(0, 0, 782, 438))
         self.verticalLayout_2 = QVBoxLayout(self.page)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.buttonGroup = QHBoxLayout()
@@ -257,32 +257,51 @@ class Ui_MainWindow(object):
         self.standardproperty.addItem(self.page, u"Standard Filters (LP, HP, BP, BS)")
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.page_2.setGeometry(QRect(0, 0, 778, 409))
+        self.page_2.setGeometry(QRect(0, 0, 782, 438))
         self.standardproperty.addItem(self.page_2, u"Custom Filters")
 
         self.verticalLayout.addWidget(self.standardproperty)
 
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
+        self.playFiltered = QPushButton(self.centralwidget)
+        self.playFiltered.setObjectName(u"playFiltered")
+
+        self.gridLayout.addWidget(self.playFiltered, 1, 1, 1, 1)
+
         self.play = QPushButton(self.centralwidget)
         self.play.setObjectName(u"play")
 
         self.gridLayout.addWidget(self.play, 0, 1, 1, 1)
 
-        self.playFiltered = QPushButton(self.centralwidget)
-        self.playFiltered.setObjectName(u"playFiltered")
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout.addWidget(self.playFiltered, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 0, 2, 1, 1)
+
+        self.saveFilter = QPushButton(self.centralwidget)
+        self.saveFilter.setObjectName(u"saveFilter")
+
+        self.gridLayout.addWidget(self.saveFilter, 1, 0, 1, 1)
 
         self.record = QPushButton(self.centralwidget)
         self.record.setObjectName(u"record")
 
         self.gridLayout.addWidget(self.record, 0, 0, 1, 1)
 
-        self.saveFilter = QPushButton(self.centralwidget)
-        self.saveFilter.setObjectName(u"saveFilter")
+        self.volumeSlider = QSlider(self.centralwidget)
+        self.volumeSlider.setObjectName(u"volumeSlider")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.volumeSlider.sizePolicy().hasHeightForWidth())
+        self.volumeSlider.setSizePolicy(sizePolicy2)
+        self.volumeSlider.setMaximum(200)
+        self.volumeSlider.setSingleStep(10)
+        self.volumeSlider.setValue(100)
+        self.volumeSlider.setOrientation(Qt.Orientation.Horizontal)
 
-        self.gridLayout.addWidget(self.saveFilter, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.volumeSlider, 1, 2, 1, 1)
 
 
         self.verticalLayout.addLayout(self.gridLayout)
@@ -314,9 +333,10 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"  High    :  ", None))
         self.standardproperty.setItemText(self.standardproperty.indexOf(self.page), QCoreApplication.translate("MainWindow", u"Standard Filters (LP, HP, BP, BS)", None))
         self.standardproperty.setItemText(self.standardproperty.indexOf(self.page_2), QCoreApplication.translate("MainWindow", u"Custom Filters", None))
-        self.play.setText(QCoreApplication.translate("MainWindow", u"PLAY", None))
         self.playFiltered.setText(QCoreApplication.translate("MainWindow", u"PLAY FILTERED", None))
-        self.record.setText(QCoreApplication.translate("MainWindow", u"RECORD", None))
+        self.play.setText(QCoreApplication.translate("MainWindow", u"PLAY", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"    Volume  :", None))
         self.saveFilter.setText(QCoreApplication.translate("MainWindow", u"SAVE FILTER", None))
+        self.record.setText(QCoreApplication.translate("MainWindow", u"RECORD", None))
     # retranslateUi
 

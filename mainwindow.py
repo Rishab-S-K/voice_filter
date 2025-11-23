@@ -41,16 +41,25 @@ class MainWindow(QMainWindow):
         self.ui.saveFilter.clicked.connect(self.on_saveFilter_clicked)
         self.ui.playFiltered.clicked.connect(self.on_playFilter_clicked)
 
+        self.ui.volumeSlider.valueChanged.connect(self.on_volume_changed)
+
 
     #initially record the audio
     def record_audio(self):
         self.current_recording = sd.rec(int(self.duration * self.freq), samplerate = self.freq, channels = 1)
         sd.wait()
         self.current_recording = self.current_recording.flatten()
+        #normalize the recording first, then multiply it by volume factor
+        self.current_recording = self.normalize(self.current_recording)
+        self.current_recording_og = self.current_recording
+        self.current_recording = self.current_recording * self.ui.volumeSlider.value()/100
         self.filtered_recording = self.current_recording
 
     #play the recorded audio
     def play_audio(self):
+        sd.play(self.current_recording)
+
+    def on_playFilter_clicked(self):
         sd.play(self.filtered_recording)
 
     #the following 4 buttons will trigger the properties to be enabled for standard filters
@@ -122,13 +131,18 @@ class MainWindow(QMainWindow):
 
         self.filtered_recording = sosfiltfilt(filter, self.current_recording)
 
-    def on_playFilter_clicked(self):
-        sd.play(self.filtered_recording)
 
-    def standard_filter(self):
-        #self.ui.buttonGroup.
-        #filter = butter(self.ui.orderSpin.value(),
+    #adjust the levels of each sample  according to its peak amplitude
+    def normalize(self, recording):
+        peak = np.max(np.abs(recording))
+        norm_recording = recording/peak
+        return norm_recording
+
+
+    def on_volume_changed(self, value):
+        self.current_recording = self.current_recording_og * value/100.
         return
+
 
 
 
