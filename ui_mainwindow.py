@@ -41,7 +41,7 @@ class Ui_MainWindow(object):
         self.standardproperty.setObjectName(u"standardproperty")
         self.page = QWidget()
         self.page.setObjectName(u"page")
-        self.page.setGeometry(QRect(0, 0, 782, 387))
+        self.page.setGeometry(QRect(0, 0, 782, 417))
         self.verticalLayout_2 = QVBoxLayout(self.page)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.buttonGroup = QHBoxLayout()
@@ -264,32 +264,39 @@ class Ui_MainWindow(object):
         self.standardproperty.addItem(self.page, u"Standard Filters (LP, HP, BP, BS)")
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.page_2.setGeometry(QRect(0, 0, 782, 387))
+        self.page_2.setGeometry(QRect(0, 0, 782, 417))
+        self.verticalLayout_4 = QVBoxLayout(self.page_2)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.gridLayout_2 = QGridLayout()
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.trebleCutPresetButton = QPushButton(self.page_2)
+        self.trebleCutPresetButton.setObjectName(u"trebleCutPresetButton")
+
+        self.gridLayout_2.addWidget(self.trebleCutPresetButton, 0, 2, 1, 1)
+
+        self.bassCutPresetButton = QPushButton(self.page_2)
+        self.bassCutPresetButton.setObjectName(u"bassCutPresetButton")
+
+        self.gridLayout_2.addWidget(self.bassCutPresetButton, 0, 1, 1, 1)
+
+        self.telephonePresetButton = QPushButton(self.page_2)
+        self.telephonePresetButton.setObjectName(u"telephonePresetButton")
+
+        self.gridLayout_2.addWidget(self.telephonePresetButton, 0, 0, 1, 1)
+
+
+        self.verticalLayout_4.addLayout(self.gridLayout_2)
+
         self.standardproperty.addItem(self.page_2, u"Custom Filters")
 
         self.verticalLayout.addWidget(self.standardproperty)
 
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label_3 = QLabel(self.centralwidget)
-        self.label_3.setObjectName(u"label_3")
-
-        self.gridLayout.addWidget(self.label_3, 0, 2, 1, 1)
-
-        self.playFiltered = QPushButton(self.centralwidget)
-        self.playFiltered.setObjectName(u"playFiltered")
-
-        self.gridLayout.addWidget(self.playFiltered, 2, 1, 1, 1)
-
         self.record = QPushButton(self.centralwidget)
         self.record.setObjectName(u"record")
 
         self.gridLayout.addWidget(self.record, 0, 0, 1, 1)
-
-        self.saveFilter = QPushButton(self.centralwidget)
-        self.saveFilter.setObjectName(u"saveFilter")
-
-        self.gridLayout.addWidget(self.saveFilter, 2, 0, 1, 1)
 
         self.volumeSlider = QSlider(self.centralwidget)
         self.volumeSlider.setObjectName(u"volumeSlider")
@@ -305,25 +312,25 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.volumeSlider, 2, 2, 1, 1)
 
+        self.playFiltered = QPushButton(self.centralwidget)
+        self.playFiltered.setObjectName(u"playFiltered")
+
+        self.gridLayout.addWidget(self.playFiltered, 2, 1, 1, 1)
+
         self.play = QPushButton(self.centralwidget)
         self.play.setObjectName(u"play")
 
         self.gridLayout.addWidget(self.play, 0, 1, 1, 1)
 
-        self.telephonePresetButton = QPushButton(self.centralwidget)
-        self.telephonePresetButton.setObjectName(u"telephonePresetButton")
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout.addWidget(self.telephonePresetButton, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 0, 2, 1, 1)
 
-        self.bassCutPresetButton = QPushButton(self.centralwidget)
-        self.bassCutPresetButton.setObjectName(u"bassCutPresetButton")
+        self.saveFilter = QPushButton(self.centralwidget)
+        self.saveFilter.setObjectName(u"saveFilter")
 
-        self.gridLayout.addWidget(self.bassCutPresetButton, 3, 1, 1, 1)
-
-        self.trebleCutPresetButton = QPushButton(self.centralwidget)
-        self.trebleCutPresetButton.setObjectName(u"trebleCutPresetButton")
-
-        self.gridLayout.addWidget(self.trebleCutPresetButton, 3, 2, 1, 1)
+        self.gridLayout.addWidget(self.saveFilter, 2, 0, 1, 1)
 
 
         self.verticalLayout.addLayout(self.gridLayout)
@@ -334,7 +341,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.menuBar = QMenuBar(MainWindow)
         self.menuBar.setObjectName(u"menuBar")
-        self.menuBar.setGeometry(QRect(0, 0, 800, 22))
+        self.menuBar.setGeometry(QRect(0, 0, 800, 21))
         self.menuOptions = QMenu(self.menuBar)
         self.menuOptions.setObjectName(u"menuOptions")
         MainWindow.setMenuBar(self.menuBar)
@@ -368,15 +375,15 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"  Low    :  ", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"  High    :  ", None))
         self.standardproperty.setItemText(self.standardproperty.indexOf(self.page), QCoreApplication.translate("MainWindow", u"Standard Filters (LP, HP, BP, BS)", None))
-        self.standardproperty.setItemText(self.standardproperty.indexOf(self.page_2), QCoreApplication.translate("MainWindow", u"Custom Filters", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"    Volume  :", None))
-        self.playFiltered.setText(QCoreApplication.translate("MainWindow", u"PLAY FILTERED", None))
-        self.record.setText(QCoreApplication.translate("MainWindow", u"RECORD", None))
-        self.saveFilter.setText(QCoreApplication.translate("MainWindow", u"SAVE FILTER", None))
-        self.play.setText(QCoreApplication.translate("MainWindow", u"PLAY", None))
-        self.telephonePresetButton.setText(QCoreApplication.translate("MainWindow", u"TELEPHONE PRESET", None))
-        self.bassCutPresetButton.setText(QCoreApplication.translate("MainWindow", u"BASS CUT PRESET", None))
         self.trebleCutPresetButton.setText(QCoreApplication.translate("MainWindow", u"TREBLE CUT PRESET", None))
+        self.bassCutPresetButton.setText(QCoreApplication.translate("MainWindow", u"BASS CUT PRESET", None))
+        self.telephonePresetButton.setText(QCoreApplication.translate("MainWindow", u"TELEPHONE PRESET", None))
+        self.standardproperty.setItemText(self.standardproperty.indexOf(self.page_2), QCoreApplication.translate("MainWindow", u"Custom Filters", None))
+        self.record.setText(QCoreApplication.translate("MainWindow", u"RECORD", None))
+        self.playFiltered.setText(QCoreApplication.translate("MainWindow", u"PLAY FILTERED", None))
+        self.play.setText(QCoreApplication.translate("MainWindow", u"PLAY", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"    Volume  :", None))
+        self.saveFilter.setText(QCoreApplication.translate("MainWindow", u"SAVE FILTER", None))
         self.menuOptions.setTitle(QCoreApplication.translate("MainWindow", u"Options", None))
     # retranslateUi
 

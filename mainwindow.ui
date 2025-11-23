@@ -26,7 +26,7 @@
          <x>0</x>
          <y>0</y>
          <width>782</width>
-         <height>387</height>
+         <height>417</height>
         </rect>
        </property>
        <attribute name="label">
@@ -326,42 +326,48 @@ QRadioButton:checked {
          <x>0</x>
          <y>0</y>
          <width>782</width>
-         <height>387</height>
+         <height>417</height>
         </rect>
        </property>
        <attribute name="label">
         <string>Custom Filters</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="2">
+           <widget class="QPushButton" name="trebleCutPresetButton">
+            <property name="text">
+             <string>TREBLE CUT PRESET</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="bassCutPresetButton">
+            <property name="text">
+             <string>BASS CUT PRESET</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="telephonePresetButton">
+            <property name="text">
+             <string>TELEPHONE PRESET</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="2">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>    Volume  :</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="playFiltered">
-        <property name="text">
-         <string>PLAY FILTERED</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0">
        <widget class="QPushButton" name="record">
         <property name="text">
          <string>RECORD</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="saveFilter">
-        <property name="text">
-         <string>SAVE FILTER</string>
         </property>
        </widget>
       </item>
@@ -387,6 +393,13 @@ QRadioButton:checked {
         </property>
        </widget>
       </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="playFiltered">
+        <property name="text">
+         <string>PLAY FILTERED</string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="1">
        <widget class="QPushButton" name="play">
         <property name="text">
@@ -394,24 +407,17 @@ QRadioButton:checked {
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="telephonePresetButton">
+      <item row="0" column="2">
+       <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>TELEPHONE PRESET</string>
+         <string>    Volume  :</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="bassCutPresetButton">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="saveFilter">
         <property name="text">
-         <string>BASS CUT PRESET</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QPushButton" name="trebleCutPresetButton">
-        <property name="text">
-         <string>TREBLE CUT PRESET</string>
+         <string>SAVE FILTER</string>
         </property>
        </widget>
       </item>
@@ -426,7 +432,7 @@ QRadioButton:checked {
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOptions">
